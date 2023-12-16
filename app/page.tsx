@@ -8,30 +8,49 @@ import {
   Grid,
   InputLabel,
   MenuItem,
+  Pagination,
   Select,
   SelectChangeEvent,
 } from '@mui/material';
 import CardMedia from './components/CardMedia';
 import { SpeciesTypes } from './typings/MagicStrings';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 export default function Home() {
   const [species, setSpecies] = useState('Human');
+  const [page, setPage] = useState(1);
   const [characters, setCharacters] = useState<Character[]>([]);
+  const [info, setInfo] = useState<any>(null);
   useEffect(() => {
-    getCharacters({ species }).then((res) => {
-      setCharacters(res);
-    });
+    console.log('cualquier cosa2');
+    setPage(1);
   }, [species]);
+  useEffect(() => {
+    console.log('cualquier cosa');
+
+    getCharacters({ species, page }).then((res) => {
+      setCharacters(res.characters);
+      setInfo(res.info);
+    });
+  }, [species, page]);
 
   const handleChange = (event: SelectChangeEvent) => {
     setSpecies(event.target.value as string);
   };
   return (
     <div className='centered'>
-      <div className='header'>Holiwis</div>
+      <div className='header'>
+        <Image
+          src='/rick-logo.png'
+          alt='rick and morty'
+          width={200}
+          height={100}
+          objectFit='contain'
+        />
+      </div>
       <FormControl fullWidth>
         <InputLabel className='label-style' id='demo-simple-select-label'>
-          Age
+          Species
         </InputLabel>
         <Select
           className='select-style'
@@ -48,6 +67,13 @@ export default function Home() {
           ))}
         </Select>
       </FormControl>
+      <Pagination
+        className='pagination'
+        count={Math.ceil((info?.count ?? 1) / 20)}
+        color='secondary'
+        page={page}
+        onChange={(event, page) => setPage(page)}
+      />
       <Grid
         maxWidth={1200}
         container

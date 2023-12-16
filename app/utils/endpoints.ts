@@ -1,7 +1,9 @@
 export const getCharacters = async ({
   species = 'human',
+  page = 1,
 }: {
   species: string;
+  page: number;
 }) => {
   try {
     const apiUrl = 'http://localhost:5000/api/v1/characters';
@@ -10,7 +12,7 @@ export const getCharacters = async ({
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ species }),
+      body: JSON.stringify({ species, page }),
     });
 
     if (!response.ok) {

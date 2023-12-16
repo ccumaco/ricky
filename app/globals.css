@@ -132,3 +132,7 @@ a {
 .select-style:hover fieldset {
   border-color: #fff !important;
 }
+.pagination button,
+.pagination div {
+  color: #fff;
+}

@@ -6,5 +6,4 @@ export enum SpeciesTypes {
   Animal = 'Animal',
   Cronenberg = 'Cronenberg',
   Poopybutthole = 'Poopybutthole',
-  Unknown = 'Unknown',
 }
