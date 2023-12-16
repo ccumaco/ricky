@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { getSingleCharacter } from '../../app/utils/endpoints';
 import Image from 'next/image';
 import { Character } from '@/app/typings/Api.interface';
-import useIsMounted from '@/app/hooks/useIsMounted';
+import useIsMounted from '@/app/Hooks/useIsMounted';
 export default function SingleCharacter() {
   const router = useRouter();
   const isMounted = useIsMounted();
