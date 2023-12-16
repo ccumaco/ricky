@@ -1,3 +1,4 @@
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export const getCharacters = async ({
   species = 'human',
   page = 1,
@@ -6,7 +7,7 @@ export const getCharacters = async ({
   page: number;
 }) => {
   try {
-    const apiUrl = 'http://localhost:5000/api/v1/characters';
+    const apiUrl = `${API_URL}/characters`;
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
@@ -31,7 +32,7 @@ export const getCharacters = async ({
 
 export const getSingleCharacter = async ({ id }: { id: number }) => {
   try {
-    const apiUrl = `http://localhost:5000/api/v1/get-single-character/${id}`;
+    const apiUrl = `${API_URL}/get-single-character/${id}`;
     const response = await fetch(apiUrl, {
       method: 'GET',
       headers: {
