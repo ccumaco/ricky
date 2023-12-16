@@ -11,10 +11,8 @@ export const getCharacters = async ({
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Origin":
-          "https://rick-and-morty-ccumaco.vercel.app/",
-        "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({ species, page }),
     });
@@ -39,10 +37,8 @@ export const getSingleCharacter = async ({ id }: { id: number }) => {
     const response = await fetch(apiUrl, {
       method: "GET",
       headers: {
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Origin":
-          "https://rick-and-morty-ccumaco.vercel.app/",
-        "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
     });
 
