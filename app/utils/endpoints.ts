@@ -12,7 +12,6 @@ export const getCharacters = async ({
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({ species, page }),
     });
@@ -38,7 +37,6 @@ export const getSingleCharacter = async ({ id }: { id: number }) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
       },
     });
 
